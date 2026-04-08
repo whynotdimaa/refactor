@@ -1,22 +1,8 @@
-"""
-Модульні тести для рефакторованого Flask-застосунку ресторану.
-Покривають основну бізнес-логіку: допоміжні функції, моделі, маршрути.
-
-Запуск:
-    pip install flask flask-sqlalchemy flask-bcrypt flask-login pytest
-    python -m pytest tests/test_cases.py -v
-"""
 
 import unittest
 from unittest.mock import MagicMock, patch
 
-
-# ===========================================================================
-# Тести допоміжних функцій (не потребують Flask-контексту)
-# ===========================================================================
-
 class TestCalculateOrderTotal(unittest.TestCase):
-    """Клас 1: тести функції _calculate_order_total"""
 
     def _calculate(self, items):
         """Локальна копія логіки для ізольованого тестування."""
@@ -51,7 +37,6 @@ class TestCalculateOrderTotal(unittest.TestCase):
 
 
 class TestSerializeReview(unittest.TestCase):
-    """Клас 2: тести функції _serialize_review"""
 
     def _make_mock_review(self, rating=5, comment='Смачно', menu_item_name='Борщ'):
         """Фабрика мок-об'єкта відгуку."""
@@ -184,8 +169,6 @@ class TestValidationLogic(unittest.TestCase):
 
 
 class TestDashboardTemplateMapping(unittest.TestCase):
-    """Клас 5: тести маппінгу ролей на шаблони (Техніка 10)"""
-
     DASHBOARD_TEMPLATES = {
         'admin': 'dashboard_admin.html',
         'waiter': 'dashboard_waiter.html',
